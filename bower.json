@@ -1,5 +1,6 @@
 {
   "name": "ng-include-scope",
   "version": "0.0.1",
-  "main": "ng-include-scope.js"
+  "main": "ng-include-scope.js",
+  "ignore": []
 }

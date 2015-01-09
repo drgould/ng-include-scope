@@ -18,7 +18,4 @@ Use the `ng-include-scope` attribute to bind an object to the scope of an `ng-in
 <div ng-include="'tpl.html'" ng-include-scope="data.moredata"></div>
 ```
 
-##Warning
-Don't use this with a very large object or you're gonna have a bad time (it creates a deep watch on the object).
-
 License: MIT

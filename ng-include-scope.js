@@ -6,10 +6,8 @@ angular.module('drg.ngIncludeScope', [])
         restrict: 'A',
         link : function( scope, elem, attrs ) {
             var keys = [];
-            scope.$watch( attrs.ngIncludeScope, function( newScope, oldScope ) {
-                var key;
-                
-                keys = Object.keys( newScope );
+            scope.$watch( attrs.ngIncludeScope, function( newScope ) {
+                keys = newScope ? Object.keys( newScope ) : [];
                 
                 // set getters
                 angular.forEach( keys, function(key) {

@@ -6,12 +6,11 @@ angular.module('drg.ngIncludeScope', [])
         restrict: 'A',
         link : function( scope, elem, attrs ) {
             var keys = [];
-            scope.$watch( attrs.ngIncludeScope, function( newScope ) {
+            scope.$watchCollection( attrs.ngIncludeScope, function( newScope ) {
                 keys = newScope ? Object.keys( newScope ) : [];
-                
                 // set getters
                 angular.forEach( keys, function(key) {
-                    if( newScope.hasOwnProperty( key ) && angular.isUndefined( scope[ key ] ) ) {
+                    if( angular.isUndefined( scope[ key ] ) ) {
                         Object.defineProperty( scope, key, { 
                             get: function() {
                                 return !!~keys.indexOf( key ) ? scope.$eval( attrs.ngIncludeScope + "['" + key.replace("'", "\\'") + "']" ) : undefined;

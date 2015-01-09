@@ -2,7 +2,7 @@ ngIncludeScope
 ================
 
 A simple AngularJS directive that allows you to specify the scope for an ngInclude.  
-[Demo](http://plnkr.co/edit/eLHiDcfxs7d32uIlKMOl)
+[Demo](http://plnkr.co/edit/eLHiDcfxs7d32uIlKMOl?p=preview)
 
 ##How to use
 Install via bower: 

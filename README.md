@@ -15,11 +15,11 @@ angular.module('app', ['drg.ngIncludeScope'])
 ```
 Use the `ng-include-scope` attribute to bind an object to the scope of an `ng-include`:
 ```html
-<div ng-include="'tpl.html'" ng-include-scope="data.moredata"></div>
+<div ng-include="'tpl.html'" ng-include-scope="newScope"></div>
 ```
 or use `ng-include-isolate-scope` if you want to bind it as a pseudo-isolate scope:
 ```html
-<div ng-include="'tpl.html'" ng-include-isolate-scope="data.moredata"></div>
+<div ng-include="'tpl.html'" ng-include-isolate-scope="newScope"></div>
 ```
 
 License: MIT

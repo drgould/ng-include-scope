@@ -15,7 +15,11 @@ angular.module('drg.ngIncludeScope', [])
             Object.defineProperty( scope, key, { 
                 get: function() {
                     if( !isolate || ( isolate && !!~whitelist.indexOf( key ) ) ) {
-                        return scope.$eval( attrs[ field ] + "['" + key.replace("'", "\\'") + "']" );
+                        var val = scope.$eval( attrs[ field ] + "['" + key.replace("'", "\\'") + "']" );
+                        if( angular.isUndefined( val ) && !isolate ) {
+                            return scope.$parent[ key ];
+                        }
+                        return val;
                     }
                     return undefined;
                 }

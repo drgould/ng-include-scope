@@ -29,7 +29,7 @@ angular.module('drg.ngIncludeScope', [])
         for( var key in scope ) {
             if( key.substr( 0, 1 ) === '$' || !!~localBlacklist.indexOf( key ) ) {
                 blacklist.push( key );
-            } else {
+            } else if( isolate ) {
                 defineGetter( key );
             }
         }

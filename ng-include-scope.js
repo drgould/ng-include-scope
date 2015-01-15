@@ -17,20 +17,24 @@ angular.module('drg.ngIncludeScope', [])
          * @param key {string}
          */ 
         function defineGetter( key ) {
-            Object.defineProperty( scope, key, { 
-                get: function() {
-                    if( !isolate || ( isolate && !!~whitelist.indexOf( key ) ) ) {
-                        // get the current value evaluated on the included scope
-                        var val = scope.$eval( attrs[ field ] + "['" + key.replace("'", "\\'") + "']" );
-                        if( angular.isUndefined( val ) && !isolate ) {
-                            // the value is not found and this is not an isolate scope so get the value on the parent scope
-                            return scope.$parent[ key ];
+            var propDesc = Object.getOwnPropertyDescriptor( scope, key );
+            // make sure there isn't already a getter defined
+            if( !propDesc || ( propDesc && !propDesc.get ) ) {
+                Object.defineProperty( scope, key, {
+                    get: function () {
+                        if ( !isolate || ( isolate && !!~whitelist.indexOf( key ) ) ) {
+                            // get the current value evaluated on the included scope
+                            var val = scope.$eval( attrs[ field ] + "['" + key.replace( "'", "\\'" ) + "']" );
+                            if ( angular.isUndefined( val ) && !isolate ) {
+                                // the value is not found and this is not an isolate scope so get the value on the parent scope
+                                return scope.$parent[ key ];
+                            }
+                            return val;
                         }
-                        return val;
+                        return undefined;
                     }
-                    return undefined;
-                }
-            } );
+                } );
+            }
         }
         
         // find all the properties currently on the scope

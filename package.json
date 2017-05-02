@@ -1,0 +1,19 @@
+{
+  "name": "ng-include-scope",
+  "version": "1.0.0",
+  "description": "ngIncludeScope ================",
+  "main": "ng-include-scope.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blingerson/ng-include-scope.git"
+  },
+  "author": "drgould",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blingerson/ng-include-scope/issues"
+  },
+  "homepage": "https://github.com/blingerson/ng-include-scope#readme"
+}
